@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-US" dir="ltr">
+
+<head><!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://u230618.gluwebsite.nl/userfiles/modules/microweber/default.css"
+        id="mw-system-default-css" type="text/css" />
+
+
+    <meta name="generator" content="Microweber" />
+
+
+    <script src="https://u230618.gluwebsite.nl/userfiles/cache/apijs_combined/api.combined.2035825814.admin.2.0.16.js"
+        id="mw-js-core-scripts"></script>
+
+
+    <script src="https://u230618.gluwebsite.nl/userfiles/cache/livewire/2.0.16/livewire/livewire.js"
+        data-turbo-eval="false" data-turbolinks-eval="false"></script>
+    <script data-turbo-eval="false"
+        data-turbolinks-eval="false">window.livewire = new Livewire(); window.Livewire = window.livewire; window.livewire_app_url = 'https://u230618.gluwebsite.nl'; window.livewire_token = 'lywmcTwLpIuHhYcyYXAg3fArRRmb7z2pqOdl9YvN'; window.deferLoadingAlpine = function (callback) { window.addEventListener('livewire:load', function () { callback(); }); }; let started = false; window.addEventListener('alpine:initializing', function () { if (!started) { window.livewire.start(); started = true; } }); document.addEventListener("DOMContentLoaded", function () { if (!started) { window.livewire.start(); started = true; } });</script>
+    <style>
+        [wire\:loading],
+        [wire\:loading\.delay],
+        [wire\:loading\.inline-block],
+        [wire\:loading\.inline],
+        [wire\:loading\.block],
+        [wire\:loading\.flex],
+        [wire\:loading\.table],
+        [wire\:loading\.grid],
+        [wire\:loading\.inline-flex] {
+            display: none;
+        }
+
+        [wire\:loading\.delay\.shortest],
+        [wire\:loading\.delay\.shorter],
+        [wire\:loading\.delay\.short],
+        [wire\:loading\.delay\.long],
+        [wire\:loading\.delay\.longer],
+        [wire\:loading\.delay\.longest] {
+            display: none;
+        }
+
+        [wire\:offline] {
+            display: none;
+        }
+
+        [wire\:dirty]:not(textarea):not(input):not(select) {
+            display: none;
+        }
+
+        input:-webkit-autofill,
+        select:-webkit-autofill,
+        textarea:-webkit-autofill {
+            animation-duration: 50000s;
+            animation-name: livewireautofill;
+        }
+
+        @keyframes livewireautofill {
+            from {}
+        }
+    </style>
+
+
+    <script
+        id="template-animations-data">mw.__pageAnimations = [{ "selector": "#mw-element-1728890897454", "id": "animation1728895961363", "animation": "None", "speed": 0.8, "when": "None" }]</script>
+
+
+
+
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>allworks</title>
+    <meta charset="utf-8">
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/><![endif]-->
+    <meta property="og:title" content="allworks">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta property="og:type" content="page">
+    <meta property="og:url" content="https://u230618.gluwebsite.nl/allworks">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="Jaedyn Trinidad Works">
+    <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+    <script>
+        mw.require('icon_selector.js');
+
+        mw.require("fonts.js");
+        mw.lib.require('bootstrap3');
+
+    </script>
+    <script>
+        mw.iconLoader()
+            .addIconSet('SVGIcons')
+            .addIconSet('iconsMindLine')
+            .addIconSet('iconsMindSolid')
+            .addIconSet('mwIcons')
+            .addIconSet('materialDesignIcons')
+            .addIconSet('materialIcons');
+    </script>
+    <script>
+        mw.templateFont = mw.templateFont || new mw.font();
+        mw.templateTopFixed = '.nav-bar.nav--fixed';
+        AddToCartModalContent = window.AddToCartModalContent || function (title) {
+
+
+            var title_display = null
+            if (typeof (title) == 'undefined') {
+                title = 'Product'
+            }
+
+
+            var html = ''
+                + '<section style="text-align: center;">'
+                + '<h5>' + title + '</h5>'
+                + '<p>has been added to your cart</p>'
+                + '<a href="javascript:;" onclick="mw.tools.modal.remove(\'#AddToCartModal\')" class="btn btn-default">Continue shopping</a> &nbsp;'
+                + '<a href="https://u230618.gluwebsite.nl/checkout/contact-information" class="btn btn-warning">Checkout</a></section>';
+            return html;
+        };
+
+        mw.on('mw.cart.add', function () {
+
+            var notification = $('body').find('.notification[data-notification-link="cart-overview"]');
+            if (notification.length > 0) {
+
+                notification.removeClass('notification--dismissed');
+                mr.notifications.showNotification(notification, 0);
+            } else {
+                mw.modal({
+                    id: 'AddToCartModal',
+                    content: AddToCartModalContent()
+                })
+            }
+            return false;
+        });
+        mw.on('mw.cart.remove', function () {
+            mw.reload_module('shop/cart');
+        });
+
+
+        $(document).ready(function () {
+            mw.$('[class*=" icon-"]').each(function () { this.className = this.className.replace(/icon-/g, 'mw-micon-'); });
+            function icons() {
+                mw.$('.edit [class*=" icon-"]').each(function () { this.className = this.className.replace(/icon-/g, 'mw-micon-'); });
+            }
+            icons();
+            mw.on('moduleLoaded', function () {
+                icons();
+            })
+            mw.on('iconInserted', function () {
+                icons();
+            })
+            mw.on('editChanged', function () {
+                icons();
+            });
+        });
+
+        $(document).ready(function () {
+            mw.on('mw.cart.add', function (event, data) {
+                $("#shoppingCartModal").modal();
+                $("#js-ajax-cart-checkout-process").reload_module()
+
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#loginModal').on('show.bs.modal', function (e) {
+                $('#loginModalModuleLogin').reload_module();
+                $('#loginModalModuleRegister').reload_module();
+            });
+
+
+            $('#shoppingCartModal').on('show.bs.modal', function (e) {
+                $('#js-ajax-cart-checkout-process').reload_module();
+            });
+
+
+            mw.on('mw.cart.add', function (event, data) {
+                $('#shoppingCartModal').modal('show');
+
+
+            });
+
+
+            $('body').on('click', '.js-show-register-window', function (e) {
+                $('#loginModal').modal('show');
+                $('.js-login-window').hide();
+                $('.js-register-window').show();
+                e.preventDefault();
+                e.stopPropagation();
+            });
+
+            $('.js-show-login-window').on('click', function (e) {
+
+                $('.js-register-window').hide();
+                $('.js-login-window').show();
+                e.preventDefault();
+                e.stopPropagation();
+            });
+        });
+    </script>
+
+
+
+    <script>mw.lib.require('collapse_nav');</script>
+    <script>
+        $(document).ready(function () {
+            $('.nav-main .menu').collapseNav({
+                responsive: 1,
+                mobile_break: 991,
+                li_class: 'dropdown',
+                li_a_class: '',
+                li_ul_class: '',
+                caret: '<span class="caret"></span>' //Element append immediately after the More text
+            });
+        })
+    </script>
+
+
+
+    <link
+        href="https://u230618.gluwebsite.nl/userfiles/media/default/css/dream/assets/less/theme.less.2.0.16-4.5.css?t=1729082385"
+        id="theme-style" rel="stylesheet" type="text/css" media="all">
+    <link href="https://u230618.gluwebsite.nl/userfiles/templates/dream/assets/css/owl.carousel.css" rel="stylesheet"
+        type="text/css" media="all">
+    <link href="https://u230618.gluwebsite.nl/userfiles/templates/dream/assets/css/mw-dream.css" rel="stylesheet"
+        type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400italic,700%7CMontserrat:400,700" rel="stylesheet"
+        type="text/css">
+
+    <script>
+        checkFirstSectionForNav = function () {
+            var firstSectionHas = $('.main-container section').first().hasClass('imagebg');
+
+            var skip = $('.main-container section').first().hasClass('background-image-holder');
+
+            if (!skip && firstSectionHas == true) {
+                $('nav .nav-bar').addClass('nav--absolute nav--transparent');
+            } else {
+                $('nav .nav-bar').removeClass('nav--absolute nav--transparent');
+            }
+        }
+
+        $(document).ready(function () {
+            checkFirstSectionForNav();
+
+            $(window).on('moduleLoaded', function () {
+                checkFirstSectionForNav();
+            });
+        });
+    </script>
+
+
+
+    <link rel="stylesheet" href="https://u230618.gluwebsite.nl/userfiles/css/dream/live_edit.css?version=1729084039"
+        id="mw-template-settings" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
+</head>
+
+<body class="page-id-2 content-id-2 page-allworks dream">
+    <a id="top"></a>
+
+
+
+
+
+
+    <nav class="">
+        <div class="nav-bar" data-fixed-at="200">
+            <div class="nav-module logo-module left">
+                <div class=' module module-logo ' data-mw-title="Logo" id="logo" template="default" default-text="Dream"
+                    data-alt-logo="true" data-type="logo" parent-module="logo" parent-module-id="logo">
+
+
+                    <a href="https://u230618.gluwebsite.nl/">
+                        <span class="mw-ui-col-x" style="width: 100px">
+                            <img src="https://u230618.gluwebsite.nl/userfiles/media/default/hoioraci4bkugjyhot96mih2hmpqf6xqinfpj1qdzf1f2tzja.png"
+                                alt="" style="max-width: 100%; width: 100px;" class="logo logo-dark" />
+                            <img src="https://u230618.gluwebsite.nl/userfiles/media/default/hoioraci4bkugjyhot96mih2hmpqf6xqinfpj1qdzf1f2tzja_1.png"
+                                alt="" style="max-width: 100%; width: 100px;" class="logo logo-light" />
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class='nav-module menu-module left module module-menu ' id='socials-menu' data-mw-title="Menu"
+                name="header_menu" template="header" data-type="menu" parent-module="menu"
+                parent-module-id="socials-menu">
+                <nav class="nav-main">
+                    <ul role="menu" id="" class="menu menu_1  first-child child-0 menu-item-id-2 menu-item-parent-1">
+                        <li role="menuitem" class="   dropdown depth-0" data-item-id="2"><a itemprop="url"
+                                data-item-id="2" class="menu_element_link   
+        first-child child-0 menu-item-id-2 menu-item-parent-1 depth-0  " href="index.html">Home</a>
+                            <ul role="menu" class=" menu_2  first-child child-0 menu-item-id-4 menu-item-parent-2">
+                                <li role="menuitem" class="    depth-1" data-item-id="4"><a itemprop="url"
+                                        data-item-id="4"
+                                        class="menu_element_link   first-child child-0 menu-item-id-4 menu-item-parent-2 depth-1  "
+                                        href="index.html">Home</a></li>
+                            </ul>
+                        </li>
+                        <li role="menuitem" class=" active   depth-0" data-item-id="5"><a itemprop="url"
+                                data-item-id="5"
+                                class="menu_element_link active  child-1 menu-item-id-5 menu-item-parent-1 depth-0  "
+                                href="all.html">allworks</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!--end nav module-->
+
+
+
+            <div class="nav-module right-x hidden-xs hidden-sm hidden-md safe-mode dream-phone-text">
+                <span class="nav-function phone-header edit safe-element" rel="global" field="dream_header_phone"
+                    style="">
+                    Call us: +31 061345874958
+                </span>
+            </div>
+        </div>
+        <!--end nav bar-->
+        <div class="nav-mobile-toggle visible-sm visible-xs">
+            <i class="icon-Align-Right icon icon--sm"></i>
+        </div>
+    </nav>
+
+
+
+    <div class="main-container ">
+
+
+        <div class="edit" rel="content" field="dream_content" data-layout-container>
+            <div class='module module module-layouts ' data-mw-title="Layouts" id="module-layouts-2" template="skin-57"
+                data-type="layouts" parent-module="layouts" parent-module-id="module-layouts-2">
+
+
+
+
+                <div class="nodrop edit    " field="layout-skin-57-module-layouts-2" rel="module">
+                    <section
+                        class="height-70 safe-mode bg--dark imagebg page-title page-title--animate parallax element"
+                        data-overlay="4" id="mw-element-1728890897447">
+                        <img src="assets/images/EnLltQ2NJs7zM9D70ir7DETNu9keMbcnQsB9f5Egw6IRWomTA.jpg" 
+                             alt="Background Image" 
+                             class="background-image-holder" 
+                             style="width: 100%; height: auto; position: absolute; top: 0; left: 0; z-index: -1; opacity: 1;">
+                        <div class="container pos-vertical-center">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1 text-center allow-drop"
+                                    id="mw-element-1728890897455">
+                                    <h1 class="element mw-resized animate__animated animate__None"
+                                        id="mw-element-1728890897454" style="--animate-duration: 0.8s;">Jaedyn Works
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class=' module module-layouts ' data-mw-title="Layouts" id="module-layouts-2--1" template="skin-56"
+                data-type="layouts" parent-module="layouts" parent-module-id="module-layouts-2--1">
+
+
+                <style>
+                    #module-layouts-2--1 {
+                        background: #000000;
+                    }
+                </style>
+
+
+                <section class="height-60 edit safe-mode nodrop" field="layout-skin-2-module-layouts-2--1" rel="module"
+                    style="background-color: black;">
+                    <div class="container pos-vertical-center">
+                        <div class="row">
+                            <div class="col-sm-12 text-center allow-drop">
+                                <!-- Start of the Slider -->
+                                <div id="websiteSlider" class="carousel slide" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#websiteSlider" data-slide-to="0" class="active"></li>
+                                        <li data-target="#websiteSlider" data-slide-to="1"></li>
+                                        <li data-target="#websiteSlider" data-slide-to="2"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="assets/img/Screenshot 2024-05-30 205715.png" height="1%"
+                                                width="100%" class="d-block mx-auto slider-img" alt="">
+                                            <div class="carousel-caption d-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/img/Screenshot 2024-06-12 115239.png"
+                                                class="d-block mx-auto slider-img" alt="">
+                                            <div class="carousel-caption d-block">
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/img/Screenshot 2024-06-17 113756.png"
+                                                class="d-block mx-auto slider-img" alt="">
+                                            <div class="carousel-caption d-block">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#websiteSlider" role="button"
+                                        data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#websiteSlider" role="button"
+                                        data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <!-- End of the Slider -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <style>
+                    .carousel-item img {
+                        height: 400px;
+                        /* Adjust height as needed */
+                        object-fit: cover;
+                    }
+
+                    .slider-img {
+                        max-width: 80%;
+                        /* Adjust as needed */
+                        max-height: 400px;
+                        /* Adjust height to your preference */
+                        object-fit: cover;
+                        /* Ensures the image doesn’t stretch */
+                        margin: 0 auto;
+                        /* Centers the image */
+                    }
+                </style>
+
+
+
+
+
+                <footer class="bg--dark footer-4 nodrop mwjs-dream-footer" style="display:block;">
+                    <div class="container edit" field="dream_footer" rel="global">
+                        <div class="row" id="mw-element-1728892596276">
+                            <div class="col-md-3 col-sm-4 allow-drop" id="mw-element-1728892596295">
+                                <div class='module module module-logo ' data-mw-title="Logo" id="footer-logo"
+                                    template="footer" data-type="logo" parent-module="logo"
+                                    parent-module-id="footer-logo">
+
+                                    <a href="index.html" class="mw-ui-row-nodrop module-logo"
+                                        style="width: auto;">
+                                        <span class="mw-ui-col"><span class="module-logo-text"
+                                                style="font-family: 'inherit';font-size:30px"></span>
+                                        </span>
+
+                                    </a>
+                                </div>
+                                <div class="element"><img id="mw-image-1728890890278"
+                                        alt="https://u230618.gluwebsite.nl/userfiles/media/default/portfoliologo_1.png"
+                                        src="https://u230618.gluwebsite.nl/userfiles/media/default/portfoliologo_1.png"
+                                        class="element mw-resized" style="object-fit: contain;"></div>
+                                <div class=' module module-menu ' data-mw-title="Menu" template="footer"
+                                    name="footer_menu" id="footer_menu" data-type="menu" parent-module="menu"
+                                    parent-module-id="footer_menu">
+                                    <ul role="menu" id=""
+                                        class="footer__navigation menu_3  menu-root menu-item-id-6 menu-item-parent-3">
+                                        <li role="menuitem" class=" active   depth-0" data-item-id="6"><a itemprop="url"
+                                                data-item-id="6"
+                                                class="menu_element_link active  menu-root menu-item-id-6 menu-item-parent-3 depth-0 "
+                                                href="https://u230618.gluwebsite.nl/allworks"><span>allworks</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-8 allow-drop">
+
+
+                            </div>
+
+                            <div class="col-md-4 col-md-offset-1 col-sm-12 allow-drop">
+                                <h6 class="element" id="mw-element-1729080438311"><br></h6>
+
+
+                                <div class='module module module-newsletter ' data-mw-title="Newsletter"
+                                    id="footer-newsletter" data-type="newsletter" parent-module="newsletter"
+                                    parent-module-id="footer-newsletter">
+
+                                    <form class="form--merge form--no-labels newsletter" method="post"
+                                        id="newsletters-form-footer-newsletter">
+                                        <input type="hidden" value="lywmcTwLpIuHhYcyYXAg3fArRRmb7z2pqOdl9YvN"
+                                            name="_token"> <input
+                                            class="col-md-8 col-sm-6 validate-required validate-email"
+                                            placeholder="Email Address" name="email" type="email" required />
+
+                                        <button type="submit" class="btn">Go</button>
+                                        <br /><br />
+                                    </form>
+
+                                    <script type="text/javascript">
+
+
+                                        mw.init_newsletter_formce9de7d6403f151968eb9daa9236953e = function () {
+                                            mw.newsletters_is_saving = false;
+                                            if (mw.$('form#newsletters-form-footer-newsletter').length) {
+                                                mw.$('form#newsletters-form-footer-newsletter').append('<input type="hidden" name="mod_id" value="footer-newsletter" />');
+                                            }
+                                            mw.$('form#newsletters-form-footer-newsletter').submit(function () {
+                                                if (mw.newsletters_is_saving) {
+                                                    return false;
+                                                }
+                                                mw.newsletters_is_saving = true;
+                                                mw.form.post('form#newsletters-form-footer-newsletter', 'https://u230618.gluwebsite.nl/api/newsletter_subscribe',
+                                                    function (msg) {
+                                                        mw.newsletters_is_saving = false;
+                                                        var resp = this;
+                                                        mw.response(mw.$('form#newsletters-form-footer-newsletter'), resp);
+                                                        if (resp.success) {
+                                                            mw.$('form#newsletters-form-footer-newsletter' + ' .hide-on-success').hide();
+                                                            mw.$('form#newsletters-form-footer-newsletter' + ' .show-on-success').show();
+                                                        }
+                                                        if (resp.redirect) {
+                                                            window.location.href = resp.redirect;
+                                                        }
+                                                    }, undefined, undefined, function () {
+                                                        mw.newsletters_is_saving = false;
+                                                    });
+                                                return false;
+                                            });
+                                        };
+
+
+                                        $(document).ready(function () {
+                                            mw.init_newsletter_formce9de7d6403f151968eb9daa9236953e();
+                                        });
+
+                                    </script>
+
+
+                                </div>
+
+                                <h6 class="element" id="mw-element-1728895960939"><br></h6>
+                                <div class=' module module-social-links ' data-mw-title="Social Links" id="socials"
+                                    data-type="social_links" parent-module="social_links" parent-module-id="socials">
+
+                                    <ul class="social-list">
+
+
+
+
+
+
+                                        <li>
+                                            <a href="//linkedin.com/https://www.linkedin.com/in/jaedyn-trinidad-a5097a332/"
+                                                target="_blank" data-toggle="tooltip" data-placement="top"
+                                                title="Linkedin">
+                                                <i class="socicon-linkedin"></i>
+                                            </a>
+                                        </li>
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer__lower">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 text-center-xs">
+                                    <span class="type--fine-print"><span class="mw-powered-by"><a
+                                                class="tblr-body-color" href="https://microweber.com/"
+                                                title="Create website">Create a website</a> with <a
+                                                class="tblr-body-color" href="https://microweber.org" target="_blank"
+                                                title="Website Builder">Microweber</a></span></span>
+                                </div>
+                                <div class="col-sm-6 text-right text-center-xs">
+                                    <a href="#top" class="inner-link top-link ">
+                                        <i class="mw-micon-solid-Arrow-Up"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <!--end of row-->
+                        </div>
+                        <!--end of container-->
+                    </div>
+
+
+                </footer>
+
+            </div>
+            <style>
+                .nav-module.menu-module {
+                    flex: 1;
+                }
+
+                .nav-main>ul ul {
+                    position: absolute;
+                    padding: 10px;
+                    background: #1274B5
+                }
+
+                .nav-main>ul>li {
+                    display: inline-block;
+                    position: relative;
+                    margin: 10px;
+                }
+
+                .nav-main>ul a {
+                    padding: 0;
+                }
+            </style>
+
+
+            <script src="https://u230618.gluwebsite.nl/userfiles/templates/dream/assets/dist/main.min.js"></script>
+            <div wire:id="ma5p7jntceFIB9x8kqBP"
+                wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;ma5p7jntceFIB9x8kqBP&quot;,&quot;name&quot;:&quot;livewire-ui-modal&quot;,&quot;locale&quot;:&quot;en_US&quot;,&quot;path&quot;:&quot;allworks&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;v&quot;:&quot;acj&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;openModal&quot;,&quot;destroyComponent&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;f81e809d&quot;,&quot;data&quot;:{&quot;activeComponent&quot;:null,&quot;components&quot;:[]},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;e01bcef6c0baf60bfb9950f48d3ad5d706b9ef80599cbc30b54ccc7d9857a802&quot;}}">
+                <script>
+
+                    Livewire.on('closeMwTopDialogIframe', () => {
+                        let dialog = mw.top().dialog.get('#mw-livewire-component-iframe');
+                        if (dialog) {
+                            dialog.remove();
+                        }
+                    });
+
+                    Livewire.on('openMwTopDialogIframe', (componentName, jsonParams) => {
+
+                        let params = [];
+                        if (jsonParams) {
+                            jsonParams.componentName = componentName;
+                            params = new URLSearchParams(jsonParams).toString();
+                        }
+                        let mwNativeModal = mw.top().dialogIframe({
+                            url: "https://u230618.gluwebsite.nl/admin-livewire-components/render-component?" + params,
+                            width: 900,
+                            height: 900,
+                            id: 'mw-livewire-component-iframe',
+                            skin: 'square_clean',
+                            center: false,
+                            resize: true,
+                            overlayClose: true,
+                            draggable: true
+                        });
+                        mwNativeModal.dialogHeader.style.display = 'none';
+                    });
+
+                    // simple modal
+                    Livewire.on('closeModal', (force = false, skipPreviousModals = 0, destroySkipped = false) => {
+                        let openedModals = document.querySelectorAll('.js-modal-livewire');
+                        for (let i = 0; i < openedModals.length; i++) {
+                            let openedModalId = openedModals[i].getAttribute('wire:key');
+                            let modal = document.getElementById("js-modal-livewire-id-" + openedModalId);
+                            if (modal) {
+                                modal.style.display = "none";
+                                Livewire.emit('destroyComponent', openedModalId);
+                            }
+                        }
+                    });
+
+                    Livewire.on('activeModalComponentChanged', (data) => {
+                        let modal = document.getElementById("js-modal-livewire-id-" + data.id);
+                        modal.style.display = "block";
+                        if (data.modalSettings) {
+                            modal.querySelector('.js-modal-livewire-content').style.width = data.modalSettings.width;
+                        }
+                    });
+                </script>
+                <style>
+                    .js-modal-livewire {
+                        display: none;
+                        position: fixed;
+                        z-index: 1100;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        overflow: auto;
+                        background-color: rgb(0, 0, 0);
+                        background-color: rgba(0, 0, 0, 0.4);
+                    }
+
+                    .js-modal-livewire-content {
+                        margin: auto;
+                        background-color: #fff;
+                        width: 100%;
+                        overflow: auto;
+                    }
+
+                    @media only screen and (min-width: 600px) {
+                        .js-modal-livewire {
+                            padding-top: 100px;
+                        }
+
+                        .js-modal-livewire-content {
+                            max-width: 480px;
+                            max-height: calc(100vh - 100px);
+                        }
+                    }
+
+                    @media only screen and (min-width: 768px) {
+                        .js-modal-livewire {
+                            padding-top: 8%;
+                        }
+
+                        .js-modal-livewire-content {
+                            max-height: calc(100vh - 100px);
+                            overflow: auto;
+                        }
+                    }
+                </style>
+                <div>
+                </div>
+            </div>
+
+            <!-- Livewire Component wire-end:ma5p7jntceFIB9x8kqBP -->
+
+
+
+
+            <script
+                type="application/ld+json">{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebPage","url":"https:\/\/u230618.gluwebsite.nl\/allworks","name":"allworks","headline":"allworks","author":"230618","image":false,"brand":{"@type":"Organization","name":"u230618.gluwebsite.nl"}}]}</script>
+</body>
+
+</html>
